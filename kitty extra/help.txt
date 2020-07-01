@@ -1,0 +1,88 @@
+<html>
+<textarea>
+
+
+<?php
+echo "<h1>Create a Cat</h1>";
+
+include("connect.php");
+
+$username = $_SESSION['username'];
+
+$submit = $_POST['submit'];
+
+//form data
+$cat1name = strip_tags($_POST['cat1name']);
+$cat1gender = strip_tags($_POST['cat1gender']);
+$cat1bio = strip_tags($_POST['cat1bio']);
+$cat1mate = strip_tags($_POST['cat1mate']);
+
+
+echo "Come to create a cat, ".$username."?<br/>";
+			
+if ($submit)
+				{											
+					
+					//create a cat!!!
+					
+					mysql_query("
+					
+					INSERT INTO users VALUES ('','$username','','','','','','','$cat1name','','$cat1gender','$cat1bio','cat1mate') WHERE username='$username'
+					
+					");
+					
+					die("<a href='cat1pic.php'>Upload</a> it's picture!");
+									
+				}
+
+?>
+
+<form action='createcat1.php' method='POST'>
+	<table>
+    
+    		<tr>
+            	<td>
+                Cat's Name:
+                </td>
+                <td>
+                <input type='text' name='cat1name'>
+                </td>
+            </tr>
+            
+            <tr>
+            	<td>
+                Cat's Gender:
+                </td>
+                <td>
+                <select name='cat1gender'>
+                	<option>She-cat</option>
+                    <option>Tom</option>
+                </select>
+                </td>
+            </tr>
+            
+            <tr>
+            	<td>
+                Cat's Bio:
+                </td>
+                <td>
+                <input type='text' name='cat1bio'>
+                </td>
+            </tr>
+            
+            <tr>
+            	<td>
+                Cat's Mate:
+                </td>
+                <td>
+                <input type='text' name='cat1mate'>
+                </td>
+            </tr>
+            
+     </table>
+     <br/>
+     <input type='submit' name='submit' value='Create a Cat!'>
+</form>
+
+</textarea>
+</html>

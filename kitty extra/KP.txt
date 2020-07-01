@@ -1,0 +1,3 @@
+index.php - homepage
+mainmenu.php - login/register
+aboutkitty.php - about kp
